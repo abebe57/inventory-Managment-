@@ -1,0 +1,18 @@
+Inventory System - fixes applied
+
+1. Replaced the broken infrastructure/adapter/StaffRepositoryImpl.java, which incorrectly contained StaffServiceImpl code, with a real StaffRepository adapter implementing the domain contract.
+2. Fixed StaffServiceImpl password verification to use Staff.getPasswordHash().
+3. Added missing infrastructure/security/StaffUserDetailsService.java required by SecurityConfig and JwtFilter.
+4. Fixed OrderDetailDtoMapper references to nonexistent getOrderId() and withSize(); it now matches the actual OrderDetail domain model and DTO.
+5. Fixed SupplierDtoMapper references to nonexistent withAddress/withFax/withOtherDetails methods by using the full Supplier constructor.
+6. Fixed Category and Customer creation so JPA-generated IDs may be null before persistence.
+7. Fixed entity equality behavior so two transient objects with null IDs are not considered equal.
+8. Fixed Role.updateRoleDetails() so it actually updates the role name and validates both name and description.
+9. Fixed Product.updateProductDetails() so supplier/category IDs passed for an update are actually stored.
+10. Removed stray editor text before the package declarations in CategoryController.java and PaymentController.java.
+11. Added a practical application.properties with overridable MySQL and JWT environment variables and Hibernate settings.
+
+Verification performed:
+- All domain classes compile with javac.
+- Domain smoke test passes.
+- Project-wide javac parsing was performed; external dependency classes are unavailable in this offline environment, so a complete Maven build could not be executed here.

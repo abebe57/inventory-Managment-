@@ -1,0 +1,27 @@
+{
+  "groups": [
+    {
+      "name": "jwt",
+      "type": "org.example.inventorysysteamvo1.infrastructure.configuration.JwtConfig",
+      "sourceType": "org.example.inventorysysteamvo1.infrastructure.configuration.JwtConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "jwt.expiration-ms",
+      "type": "java.lang.Long",
+      "description": "Token lifetime in milliseconds. Default: 86 400 000 ms = 24 hours.",
+      "sourceType": "org.example.inventorysysteamvo1.infrastructure.configuration.JwtConfig"
+    },
+    {
+      "name": "jwt.secret",
+      "type": "java.lang.String",
+      "description": "Base64-encoded secret key used to sign JWTs. Generate a suitable value with: openssl rand -base64 32 Never commit the real secret to source control.",
+      "sourceType": "org.example.inventorysysteamvo1.infrastructure.configuration.JwtConfig"
+    }
+  ],
+  "hints": [],
+  "ignored": {
+    "properties": []
+  }
+}
